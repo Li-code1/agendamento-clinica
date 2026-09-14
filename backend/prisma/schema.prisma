@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Cada consulta agendada. A combinação (date, time) é única para impedir
+// que dois pacientes sejam agendados no mesmo horário (double-booking).
+model Appointment {
+  id          String   @id @default(uuid())
+  patientName String
+  date        String   // formato "YYYY-MM-DD" (string pura, sem timezone embutido)
+  time        String   // formato "HH:mm"
+  createdAt   DateTime @default(now())
+
+  @@unique([date, time])
+  @@map("appointments")
+}

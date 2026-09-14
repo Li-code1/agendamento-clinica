@@ -1,0 +1,24 @@
+# Orquestração opcional para rodar frontend e backend localmente com Docker.
+# O banco de dados NÃO é incluído aqui: o projeto usa PostgreSQL gerenciado
+# pelo Supabase (ver README.md), então basta configurar o DATABASE_URL
+# de cada serviço apontando para o Supabase.
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3333:3333"
+    env_file:
+      - ./backend/.env
+    working_dir: /app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    working_dir: /app
+    depends_on:
+      - backend
