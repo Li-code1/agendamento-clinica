@@ -2,6 +2,12 @@
 
 MVP de um sistema de agendamento de consultas para uma clínica, desenvolvido como teste técnico para a vaga de Estagiário Full Stack. Substitui o processo manual de agendar consultas por WhatsApp por um fluxo simples de auto-agendamento: o paciente escolhe uma data, vê os horários livres e confirma o agendamento.
 
+## Screenshots
+
+| Agendamento | Confirmação | Lista de agendamentos |
+|---|---|---|
+| ![Tela de agendamento](docs/screenshots/tela-agendamento.jpg) | ![Horários atualizados após agendar](docs/screenshots/tela-horarios-atualizados.jpg) | ![Lista de agendamentos](docs/screenshots/tela-lista-agendamentos.jpg) |
+
 ## Sumário
 
 1. [Tecnologias utilizadas](#tecnologias-utilizadas)
@@ -65,6 +71,8 @@ project/
    postgresql://postgres:[SUA-SENHA]@[HOST]:5432/postgres
    ```
 7. Substitua `[SUA-SENHA]` pela senha definida no passo 3.
+
+> **Importante ao hospedar o backend fora do Supabase (Render, Railway, etc.):** o host de conexão direta (`db.xxxx.supabase.co`) só resolve por IPv6 em várias regiões, e a maioria dos provedores de hospedagem não tem saída IPv6 — isso causa o erro `Can't reach database server`. Nesse caso, use a string de **Connection Pooling** (host `aws-0-[região].pooler.supabase.com`, porta `6543`, com `?pgbouncer=true` no final), que passa por um proxy compatível com IPv4. Para rodar localmente isso normalmente não é necessário, mas é o primeiro lugar a checar se o backend publicado não conseguir conectar no banco.
 
 ## Variáveis de ambiente
 
