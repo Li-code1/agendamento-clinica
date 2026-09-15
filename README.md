@@ -8,6 +8,10 @@ MVP de um sistema de agendamento de consultas para uma clínica, desenvolvido co
 |---|---|---|
 | ![Tela de agendamento](docs/screenshots/tela-agendamento.jpg) | ![Horários atualizados após agendar](docs/screenshots/tela-horarios-atualizados.jpg) | ![Lista de agendamentos](docs/screenshots/tela-lista-agendamentos.jpg) |
 
+| Bloqueio em feriado | Bloqueio em fim de semana |
+|---|---|
+| ![Mensagem de feriado](docs/screenshots/tela-feriado.jpg) | ![Mensagem de fim de semana](docs/screenshots/tela-fim-de-semana.jpg) |
+
 ## Sumário
 
 1. [Tecnologias utilizadas](#tecnologias-utilizadas)
